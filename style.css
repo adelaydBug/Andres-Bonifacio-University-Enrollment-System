@@ -1,0 +1,175 @@
+/* =====================================================================
+   LOGIN PAGE STYLE  (root style.css, used only by index.php)
+   Theme: maroon + gold
+   ===================================================================== */
+
+/* ---------- Page background ---------- */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;                       /* centers the white box on the screen */
+    align-items: center;
+    justify-content: center;
+
+    background-image: url('bg-maroon.jpg');
+    background-color: #12030a;           /* shows only while the image loads */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* ---------- The white rectangle ---------- */
+.loginForm {
+    /* >>> Easy settings: change these numbers <<< */
+    --box-width:  750px;                 /* width of the white rectangle  */
+    --box-height: 300px;                 /* height of the white rectangle */
+    --logo-area:  300px;                 /* space reserved for the logo   */
+    --logo-size:  260px;                 /* logo size (width and height)  */
+
+    box-sizing: border-box;
+    width: var(--box-width);
+    max-width: 94vw;
+    height: var(--box-height);
+
+    display: flex;                       /* logo on the left, form on the right */
+    align-items: center;
+
+    background: #fffaf4;
+    border: 1px solid #d8c7c7;
+}
+
+/* ---------- Logo (left side) ---------- */
+.logoBox {
+    flex: 0 0 var(--logo-area);
+    text-align: center;
+}
+
+.logoBox img {
+    display: block;
+    margin: 0 auto;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+    transform: translateX(40px);    /* <<< add this: moves the logo 20px to the right */
+}
+
+/* ---------- Form side (right): title, fields and button share ONE center line ---------- */
+.loginPanel {
+    flex: 1;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.loginPanel h1 {
+    margin: 0 0 26px;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #6b0f2a;
+    white-space: nowrap;                 /* keeps "System Login" on one line */
+}
+
+.fields {
+    margin: 0 auto;                      /* centered under the title */
+    border-collapse: collapse;
+}
+
+.fields td {
+    padding: 3px 4px;
+}
+
+.fields .label {
+    text-align: right;
+    white-space: nowrap;
+    color: #7a1a33;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ---------- Inputs (same size, so Username and Password line up) ---------- */
+.loginForm input.text {
+    box-sizing: border-box;
+    width: 210px;
+    height: 26px;
+    padding: 3px 6px;
+    background: #ffffff;
+    color: #3a0d19;
+    border: 1px solid #b08a94;
+    font-size: 14px;
+}
+
+.loginForm input.text:focus {
+    outline: none;
+    border-color: #d9a441;               /* gold when typing */
+}
+
+/* ---------- Eye icon inside the password box ---------- */
+.pwwrap {
+    position: relative;
+    width: 210px;
+}
+
+.pwwrap input.text {
+    padding-right: 30px;                 /* text never runs under the eye */
+}
+
+#togglePassword {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #8a1538;
+}
+
+#togglePassword:hover {
+    color: #d9a441;
+}
+
+/* ---------- Login button ---------- */
+.loginForm .btn {
+    display: block;
+    width: 250px;
+    margin: 22px auto 0;                 /* centered, same axis as the title */
+    padding: 5px 0;
+    background: linear-gradient(#8a1538, #5e0c24);
+    color: #ffffff;
+    border: 1px solid #4a0a1c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.loginForm .btn:hover {
+    background: linear-gradient(#e0ae52, #c4902f);
+    color: #3a0d19;
+}
+
+/* ---------- Phones / narrow windows: logo on top, form below ---------- */
+@media (max-width: 760px) {
+    .loginForm {
+        flex-direction: column;
+        height: auto;
+        padding: 24px 10px;
+    }
+    .logoBox {
+        flex: none;
+        margin-bottom: 14px;
+    }
+    .logoBox img {
+        width: 140px;
+        height: 140px;
+    }
+    .loginPanel h1 {
+        font-size: 30px;
+        margin-bottom: 18px;
+    }
+}
